@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>原料資料庫操作說明 — 百鮮企業食品標示系統 V5.0</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Microsoft JhengHei','PingFang TC',sans-serif;font-size:14px;color:#1e1e1e;background:#f5f5f0;padding:32px 16px}
+  .page{max-width:860px;margin:0 auto}
+  h1{font-size:22px;font-weight:600;margin-bottom:4px;color:#1e1e1e}
+  .subtitle{font-size:13px;color:#6b6b63;margin-bottom:32px}
+  h2{font-size:16px;font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:8px;color:#1e1e1e}
+  h2 .icon{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+  h3{font-size:13px;font-weight:600;margin-bottom:8px;color:#3d3d3a}
+  .section{background:#fff;border:0.5px solid #d3d1c7;border-radius:12px;padding:20px 22px;margin-bottom:16px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0}
+  .card{background:#f5f5f0;border:0.5px solid #d3d1c7;border-radius:8px;padding:14px}
+  .card.blue{background:#e6f1fb;border-color:#b5d4f4}
+  .card.green{background:#eaf3de;border-color:#c0dd97}
+  .card.amber{background:#faeeda;border-color:#fac775}
+  .card.red{background:#fcebeb;border-color:#f7c1c1}
+  .rule{font-size:12px;color:#444441;padding:3px 0;display:flex;align-items:flex-start;gap:6px;line-height:1.5}
+  .rule .dot{margin-top:5px;width:5px;height:5px;border-radius:50%;flex-shrink:0}
+  .dot-green{background:#3b6d11}
+  .dot-blue{background:#185fa5}
+  .dot-amber{background:#854f0b}
+  .dot-red{background:#a32d2d}
+  .dot-gray{background:#888780}
+  .tag{display:inline-flex;align-items:center;font-size:11px;padding:1px 8px;border-radius:20px;font-weight:600;white-space:nowrap}
+  .tag-blue{background:#e6f1fb;color:#185fa5}
+  .tag-green{background:#eaf3de;color:#3b6d11}
+  .tag-amber{background:#faeeda;color:#854f0b}
+  .tag-red{background:#fcebeb;color:#a32d2d}
+  .tag-gray{background:#f1efe8;color:#5f5e5a;border:0.5px solid #d3d1c7}
+  .flow{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin:10px 0;line-height:1.4}
+  .fbox{background:#f1efe8;border:0.5px solid #d3d1c7;border-radius:6px;padding:5px 12px;font-size:12px;text-align:center}
+  .fbox.blue{background:#e6f1fb;border-color:#b5d4f4;color:#185fa5}
+  .fbox.green{background:#eaf3de;border-color:#c0dd97;color:#3b6d11}
+  .fbox.amber{background:#faeeda;border-color:#fac775;color:#854f0b}
+  .arrow{color:#b4b2a9;font-size:16px;font-weight:300}
+  .notice{border-radius:8px;padding:11px 14px;font-size:12px;margin:12px 0;line-height:1.6}
+  .notice.amber{background:#faeeda;border:0.5px solid #ef9f27;color:#854f0b}
+  .notice.blue{background:#e6f1fb;border:0.5px solid #378add;color:#185fa5}
+  .notice.green{background:#eaf3de;border:0.5px solid #639922;color:#3b6d11}
+  .notice b{font-weight:600}
+  .notice ul{margin:6px 0 0 18px;list-style:disc}
+  .notice ul li{margin-bottom:2px}
+  table{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px}
+  th{text-align:left;font-weight:600;color:#5f5e5a;padding:8px 10px;border-bottom:1.5px solid #d3d1c7;background:#f5f5f0}
+  td{padding:8px 10px;border-bottom:0.5px solid #e8e6df;vertical-align:top;line-height:1.5}
+  tr:last-child td{border-bottom:none}
+  .match-pill{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:2px 8px;border-radius:4px;border:0.5px solid #d3d1c7;background:#f5f5f0;color:#1e1e1e;white-space:nowrap}
+  .num{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#1e1e1e;color:#fff;font-size:10px;font-weight:600;flex-shrink:0}
+  .divider{border:none;border-top:0.5px solid #d3d1c7;margin:20px 0}
+  .toc{background:#fff;border:0.5px solid #d3d1c7;border-radius:12px;padding:16px 22px;margin-bottom:20px}
+  .toc-title{font-size:13px;font-weight:600;color:#5f5e5a;margin-bottom:10px}
+  .toc a{display:block;font-size:13px;color:#185fa5;text-decoration:none;padding:3px 0}
+  .toc a:hover{text-decoration:underline}
+  .footer{text-align:center;font-size:11px;color:#b4b2a9;margin-top:32px;padding-top:16px;border-top:0.5px solid #d3d1c7}
+  @media print{
+    body{background:#fff;padding:16px}
+    .section{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <h1>原料資料庫操作說明</h1>
+  <div class="subtitle">百鮮企業有限公司 食品標示系統 V5.0 ｜ 原料管理模組</div>
+
+  <!-- 目錄 -->
+  <div class="toc">
+    <div class="toc-title">目錄</div>
+    <a href="#manual">一、手動新增</a>
+    <a href="#full-import">二、全量匯入</a>
+    <a href="#partial-import">三、部分匯入</a>
+    <a href="#export">四、匯出</a>
+    <a href="#compare">五、全量 vs. 部分匯入快速比較</a>
+    <a href="#excel-format">六、Excel 檔案格式規範</a>
+  </div>
+
+  <!-- 一、手動新增 -->
+  <div class="section" id="manual">
+    <h2>
+      <span class="icon" style="background:#f1efe8">✏️</span>
+      一、手動新增
+    </h2>
+    <div class="cards">
+      <div class="card">
+        <h3>適用情境</h3>
+        <div class="rule"><span class="dot dot-green"></span>單筆新增，資料欄位逐一填寫</div>
+        <div class="rule"><span class="dot dot-green"></span>適合少量、需完整填寫的原料</div>
+      </div>
+      <div class="card">
+        <h3>注意事項</h3>
+        <div class="rule"><span class="dot dot-blue"></span><strong>品名</strong>為唯一識別鍵，同一品名不可重複</div>
+        <div class="rule"><span class="dot dot-blue"></span>舊品號（B欄）、新品號（C欄）為選填</div>
+        <div class="rule"><span class="dot dot-gray"></span>採購狀態預設為「採購確認」</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 二、全量匯入 -->
+  <div class="section" id="full-import">
+    <h2>
+      <span class="icon" style="background:#eaf3de">📥</span>
+      二、全量匯入
+      <span class="tag tag-green">可選擇採購狀態</span>
+    </h2>
+
+    <h3 style="margin-bottom:8px">處理流程</h3>
+    <div class="flow">
+      <div class="fbox blue">讀取 Excel</div>
+      <div class="arrow">→</div>
+      <div class="fbox">跳過第 1、2 列<br><span style="font-size:10px;color:#888780">(標題 + 說明行)</span></div>
+      <div class="arrow">→</div>
+      <div class="fbox amber">品名空白 / 含「略」/<br>開頭「勿」→ 跳過</div>
+      <div class="arrow">→</div>
+      <div class="fbox">比對現有資料庫</div>
+      <div class="arrow">→</div>
+      <div class="fbox green">寫入</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3 style="margin-bottom:10px">比對順序（優先度由高到低）</h3>
+    <div class="flow" style="margin-bottom:4px">
+      <span class="match-pill"><span class="num">1</span> 舊品號（B欄）</span>
+      <div class="arrow">→</div>
+      <span class="match-pill"><span class="num">2</span> 新品號（C欄）</span>
+      <div class="arrow">→</div>
+      <span class="match-pill"><span class="num">3</span> 品名（D欄）</span>
+    </div>
+    <div style="font-size:11px;color:#888780;margin-bottom:14px">三者比對均忽略大小寫與前後空白</div>
+
+    <div class="cards">
+      <div class="card green">
+        <h3 style="margin-bottom:8px"><span class="tag tag-green" style="margin-right:4px">找到現有記錄</span> 方案 A 合併</h3>
+        <div class="rule"><span class="dot dot-green"></span>既有欄位<strong>有值</strong> → 保留原值，不覆蓋</div>
+        <div class="rule"><span class="dot dot-green"></span>既有欄位<strong>空白</strong> → 補入匯入資料</div>
+        <div class="rule"><span class="dot dot-gray"></span>id、createdAt 永遠保留</div>
+        <div style="font-size:11px;color:#3b6d11;margin-top:8px;font-weight:600">→ 計入：更新筆數</div>
+      </div>
+      <div class="card blue">
+        <h3 style="margin-bottom:8px"><span class="tag tag-blue" style="margin-right:4px">未找到</span> 全新新增</h3>
+        <div class="rule"><span class="dot dot-blue"></span>建立新記錄，套用所選採購狀態</div>
+        <div class="rule"><span class="dot dot-blue"></span>成本 &gt; 0 時，同步寫入價格歷史</div>
+        <div class="rule"><span class="dot dot-amber"></span>品名與其他品號記錄重複 → <strong>略過並提示</strong></div>
+        <div style="font-size:11px;color:#185fa5;margin-top:8px;font-weight:600">→ 計入：新增筆數 / 略過筆數</div>
+      </div>
+    </div>
+
+    <div class="notice amber">
+      <b>⚠ 重要：Excel 格式必須符合規範，否則第一筆資料會被跳過</b>
+      <ul>
+        <li>第 1 列：欄位標題（日期、舊品號、新品號、品名…）</li>
+        <li>第 2 列：固定放「<strong>勿刪 / 略 / 略</strong>」說明行（<strong>必須存在</strong>）</li>
+        <li>資料從第 3 列起，N 列 = N 筆</li>
+        <li>C 欄（新品號）若為 #N/A 或 Excel 公式錯誤，自動視為空值</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 三、部分匯入 -->
+  <div class="section" id="partial-import">
+    <h2>
+      <span class="icon" style="background:#e6f1fb">📤</span>
+      三、部分匯入（補充或更新特定欄位）
+    </h2>
+
+    <div class="cards">
+      <div class="card green">
+        <h3 style="margin-bottom:8px"><span class="tag tag-green" style="margin-right:4px">找到現有記錄</span> 強制覆蓋</h3>
+        <div class="rule"><span class="dot dot-green"></span>匯入欄位<strong>有值</strong> → 覆蓋現有值</div>
+        <div class="rule"><span class="dot dot-green"></span>匯入欄位<strong>空白</strong> → 不動現有值</div>
+        <div class="rule"><span class="dot dot-blue"></span>成本有變動 → 自動記錄價格歷史</div>
+        <div class="rule"><span class="dot dot-amber"></span>採購狀態（procurementStatus）<strong>不會被更改</strong></div>
+        <div style="font-size:11px;color:#3b6d11;margin-top:8px;font-weight:600">→ 計入：更新筆數</div>
+      </div>
+      <div class="card blue">
+        <h3 style="margin-bottom:8px"><span class="tag tag-blue" style="margin-right:4px">未找到</span> 直接新增</h3>
+        <div class="rule"><span class="dot dot-blue"></span>建立新記錄（不需說明行格式）</div>
+        <div class="rule"><span class="dot dot-red"></span><strong>無</strong>品名重複保護，重複品名也會新增</div>
+        <div style="font-size:11px;color:#185fa5;margin-top:8px;font-weight:600">→ 計入：新增筆數</div>
+      </div>
+    </div>
+
+    <div class="notice blue">
+      <b>適用情境</b>：原料已存在於資料庫，需補充或修正部分欄位（例如：補填採購成本、新增產地、更新食添證效期）。與全量匯入不同，有值的欄位會被<strong>覆蓋</strong>。
+    </div>
+  </div>
+
+  <!-- 四、匯出 -->
+  <div class="section" id="export">
+    <h2>
+      <span class="icon" style="background:#f1efe8">📊</span>
+      四、匯出
+    </h2>
+    <div class="cards">
+      <div class="card">
+        <h3>匯出範圍</h3>
+        <div class="rule"><span class="dot dot-green"></span>依目前篩選條件匯出（全部 / 待採購 / 已確認）</div>
+        <div class="rule"><span class="dot dot-green"></span>格式與匯入模板相同，可直接用於回填</div>
+      </div>
+      <div class="card">
+        <h3>匯出欄位</h3>
+        <div class="rule"><span class="dot dot-blue"></span>包含所有欄位（中英文標示、營養素、文件狀態等）</div>
+        <div class="rule"><span class="dot dot-gray"></span>不含採購狀態欄位（procurementStatus）</div>
+      </div>
+    </div>
+    <div class="notice green">
+      <b>建議做法</b>：先匯出現有資料 → 在 Excel 中補充空白欄位 → 再用<strong>全量匯入（方案 A）</strong>回填，既有有值的欄位不會被清除。
+    </div>
+  </div>
+
+  <!-- 五、比較表 -->
+  <div class="section" id="compare">
+    <h2>
+      <span class="icon" style="background:#f1efe8">⚖️</span>
+      五、全量匯入 vs. 部分匯入 快速比較
+    </h2>
+    <table>
+      <thead>
+        <tr>
+          <th width="30%">項目</th>
+          <th width="35%">全量匯入</th>
+          <th width="35%">部分匯入</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>找到現有記錄時</td>
+          <td>只補空白欄位，保留有值欄位</td>
+          <td>有值就覆蓋，空白才保留</td>
+        </tr>
+        <tr>
+          <td>品名重複保護</td>
+          <td><span class="tag tag-green">有</span>　略過並跳出提示</td>
+          <td><span class="tag tag-red">無</span>　直接新增，可能產生重複</td>
+        </tr>
+        <tr>
+          <td>採購狀態設定</td>
+          <td><span class="tag tag-green">可選擇</span>　匯入前選待採購或已確認</td>
+          <td><span class="tag tag-gray">不更改</span>　維持原記錄的狀態</td>
+        </tr>
+        <tr>
+          <td>Excel 說明行（第 2 列）</td>
+          <td><span class="tag tag-amber">必要</span>　缺少則第一筆資料被跳過</td>
+          <td><span class="tag tag-gray">非必要</span>　直接從有資料的列開始</td>
+        </tr>
+        <tr>
+          <td>價格歷史記錄</td>
+          <td>成本 &gt; 0 時，新增筆才記錄</td>
+          <td>成本有變動就記錄（新增或更新皆是）</td>
+        </tr>
+        <tr>
+          <td>適合情境</td>
+          <td>初次大量建檔、或補充空白欄位</td>
+          <td>更新既有記錄的特定欄位</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 六、Excel 格式規範 -->
+  <div class="section" id="excel-format">
+    <h2>
+      <span class="icon" style="background:#faeeda">📋</span>
+      六、Excel 檔案格式規範
+    </h2>
+
+    <h3 style="margin-bottom:8px">欄位對應（全量匯入）</h3>
+    <table>
+      <thead>
+        <tr><th>欄位</th><th>Excel 欄名</th><th>說明</th><th>必填</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>A</td><td>日期</td><td>建立日期，格式 YYYY-MM-DD 或 YYYY/MM/DD</td><td><span class="tag tag-gray">選填</span></td></tr>
+        <tr><td>B</td><td>舊品號</td><td>系統比對鍵（優先度最高），相同視為同一原料</td><td><span class="tag tag-gray">選填</span></td></tr>
+        <tr><td>C</td><td>新品號</td><td>系統比對鍵（優先度次之），#N/A 自動忽略</td><td><span class="tag tag-gray">選填</span></td></tr>
+        <tr><td>D</td><td>品名</td><td>系統比對鍵（最終）；空白、「略」、開頭「勿」的列會被跳過</td><td><span class="tag tag-amber">必填</span></td></tr>
+        <tr><td>E</td><td>分類</td><td>原料分類，用於過敏原自動偵測</td><td><span class="tag tag-gray">選填</span></td></tr>
+        <tr><td>M</td><td>熱量（大卡）</td><td>數值欄位，空白視為 0</td><td><span class="tag tag-gray">選填</span></td></tr>
+        <tr><td>N–W</td><td>蛋白質 ~ 咖啡因</td><td>各營養素（g 或 mg），空白視為 0</td><td><span class="tag tag-gray">選填</span></td></tr>
+        <tr><td>X–AB</td><td>產規書 ~ 第三方檢驗報告</td><td>文件狀態，有值視為已備齊</td><td><span class="tag tag-gray">選填</span></td></tr>
+        <tr><td>AC</td><td>食添證效期</td><td>日期格式 YYYY-MM-DD，自動截取前 10 碼</td><td><span class="tag tag-gray">選填</span></td></tr>
+        <tr><td>AM</td><td>廠商全稱</td><td>供應商名稱</td><td><span class="tag tag-gray">選填</span></td></tr>
+        <tr><td>AW</td><td>成本（kg-未稅）</td><td>採購單價，匯入時同步寫入價格歷史（新增筆）</td><td><span class="tag tag-gray">選填</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="notice amber" style="margin-top:16px">
+      <b>⚠ 全量匯入 Excel 固定格式</b>
+      <ul>
+        <li><b>第 1 列</b>：欄位標題列（日期、舊品號、新品號、品名…），系統自動識別欄位名稱</li>
+        <li><b>第 2 列</b>：說明行，<b>A欄固定填「勿刪」，其他欄填「略」</b>（缺少此列，第一筆資料會被跳過）</li>
+        <li><b>第 3 列起</b>：實際原料資料，每列一筆</li>
+        <li>部分匯入不需說明行，從有資料的列直接讀取</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    百鮮企業有限公司 食品標示系統 V5.0 ｜ 原料資料庫操作說明 ｜ 如有問題請洽系統管理員
+  </div>
+
+</div>
+</body>
+</html>
