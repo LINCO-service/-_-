@@ -285,7 +285,10 @@
         <tr><td>M</td><td>熱量（大卡）</td><td>數值欄位，空白視為 0</td><td><span class="tag tag-gray">選填</span></td></tr>
         <tr><td>N–W</td><td>蛋白質 ~ 咖啡因</td><td>各營養素（g 或 mg），空白視為 0</td><td><span class="tag tag-gray">選填</span></td></tr>
         <tr><td>X–AB</td><td>產規書 ~ 第三方檢驗報告</td><td>文件狀態，有值視為已備齊</td><td><span class="tag tag-gray">選填</span></td></tr>
-        <tr><td>AC</td><td>食添證效期</td><td>日期格式 YYYY-MM-DD，自動截取前 10 碼</td><td><span class="tag tag-gray">選填</span></td></tr>
+        <tr><td>AC</td><td>食添證效期</td><td>
+          日期格式 YYYY-MM-DD 或 YYYY/MM/DD，自動截取前 10 碼<br>
+          <span style="color:#854f0b;font-size:11px">⚠ 建議將此欄儲存格格式設為<strong>「文字」</strong>，避免 Excel 自動轉換日期序號導致全量匯入與部分匯入結果不一致</span>
+        </td><td><span class="tag tag-gray">選填</span></td></tr>
         <tr><td>AM</td><td>廠商全稱</td><td>供應商名稱</td><td><span class="tag tag-gray">選填</span></td></tr>
         <tr><td>AW</td><td>成本（kg-未稅）</td><td>採購單價，匯入時同步寫入價格歷史（新增筆）</td><td><span class="tag tag-gray">選填</span></td></tr>
       </tbody>
