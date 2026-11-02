@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="百鮮企業樣品開發追蹤系統｜內部操作手冊">
+<meta name="theme-color" content="#1F4637">
+<title>內部操作手冊｜百鮮企業</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="index.html"><img src="assets/logo-192.png" alt="" width="30" height="30"><span>樣品開發追蹤系統　操作手冊</span></a>
+  <span class="sp"></span>
+  <a class="lnk on" href="internal.html">內部手冊</a><a class="lnk" href="customer.html">客戶端手冊</a>
+  <button id="printBtn" class="hide-m" type="button" title="列印或另存 PDF">列印</button>
+</header><div class="wrap">
+<nav class="toc" aria-label="目錄"><p class="ttl">目　錄</p><ol><li class=""><a href="#intro">1　系統簡介與登入</a></li><li class="sub"><a href="#login">1.1　如何登入</a></li><li class="sub"><a href="#switch">1.2　多重身分切換</a></li><li class="sub"><a href="#outage">1.3　系統連不上資料庫時</a></li><li class=""><a href="#roles">2　角色與權限總覽</a></li><li class="sub"><a href="#menu">2.1　各角色看得到的選單</a></li><li class=""><a href="#lifecycle">3　案件與樣品的生命週期</a></li><li class="sub"><a href="#status">3.1　狀態說明</a></li><li class="sub"><a href="#stamp">3.2　每個階段的日期時間</a></li><li class=""><a href="#sales">4　業務／業務助理</a></li><li class="sub"><a href="#customers">4.1　客戶管理</a></li><li class="sub"><a href="#newcase">4.2　建立案件</a></li><li class="sub"><a href="#caselist">4.3　案件列表</a></li><li class="sub"><a href="#itemctl">4.4　單項樣品的暫停、結案與回饋</a></li><li class="sub"><a href="#void">4.5　刪除與作廢案件</a></li><li class="sub"><a href="#remind">4.6　提醒中心</a></li><li class="sub"><a href="#shipped">4.7　已寄出樣品查詢</a></li><li class=""><a href="#rd">5　研發／研發主管</a></li><li class="sub"><a href="#rdflow">5.1　作業流程一覽</a></li><li class="sub"><a href="#board">5.2　品研工作台總覽</a></li><li class="sub"><a href="#assign">5.3　待分配與指派</a></li><li class="sub"><a href="#process">5.4　處理樣品</a></li><li class="sub"><a href="#rdcat">5.5　研發分類與「沿用既有配方」</a></li><li class="sub"><a href="#dispatch">5.6　寄件作業（批次寄出）</a></li><li class="sub"><a href="#extend">5.7　展延申請</a></li><li class="sub"><a href="#history">5.8　打樣歷程</a></li><li class=""><a href="#docs">6　文件處理與報價（品管／研發）</a></li><li class="sub"><a href="#docsplit">6.1　一個申請拆成各自的工作項目</a></li><li class="sub"><a href="#docview">6.2　文件處理頁籤與期限</a></li><li class="sub"><a href="#quote">6.3　報價索取：研發只提供原料成本</a></li><li class=""><a href="#dash">7　儀表板</a></li><li class="sub"><a href="#hit">7.1　打擊率怎麼算</a></li><li class="sub"><a href="#custdash">7.2　客戶看到的儀表板</a></li><li class=""><a href="#admin">8　管理者／最高管理員</a></li><li class="sub"><a href="#users">8.1　使用者管理與 LINE 綁定</a></li><li class="sub"><a href="#speed">8.2　時效設定</a></li><li class=""><a href="#faq">9　常見問題</a></li><li class=""><a href="#log">10　更新紀錄</a></li></ol></nav>
+<main>
+<section class="hero"><div class="eyebrow">LINCO 百鮮企業　樣品開發追蹤系統</div><h1>內部操作手冊</h1><p>給業務、業務助理、研發、品管與管理者：從建立案件、打樣寄送、回饋定案到報價送審的完整操作。</p><div class="meta"><span>適用：同仁</span><span>系統版本 v76</span><span>更新 2026-11-02</span></div></section>
+<details class="toc-m"><summary>📑 目錄</summary><ol><li class=""><a href="#intro">1　系統簡介與登入</a></li><li class="sub"><a href="#login">1.1　如何登入</a></li><li class="sub"><a href="#switch">1.2　多重身分切換</a></li><li class="sub"><a href="#outage">1.3　系統連不上資料庫時</a></li><li class=""><a href="#roles">2　角色與權限總覽</a></li><li class="sub"><a href="#menu">2.1　各角色看得到的選單</a></li><li class=""><a href="#lifecycle">3　案件與樣品的生命週期</a></li><li class="sub"><a href="#status">3.1　狀態說明</a></li><li class="sub"><a href="#stamp">3.2　每個階段的日期時間</a></li><li class=""><a href="#sales">4　業務／業務助理</a></li><li class="sub"><a href="#customers">4.1　客戶管理</a></li><li class="sub"><a href="#newcase">4.2　建立案件</a></li><li class="sub"><a href="#caselist">4.3　案件列表</a></li><li class="sub"><a href="#itemctl">4.4　單項樣品的暫停、結案與回饋</a></li><li class="sub"><a href="#void">4.5　刪除與作廢案件</a></li><li class="sub"><a href="#remind">4.6　提醒中心</a></li><li class="sub"><a href="#shipped">4.7　已寄出樣品查詢</a></li><li class=""><a href="#rd">5　研發／研發主管</a></li><li class="sub"><a href="#rdflow">5.1　作業流程一覽</a></li><li class="sub"><a href="#board">5.2　品研工作台總覽</a></li><li class="sub"><a href="#assign">5.3　待分配與指派</a></li><li class="sub"><a href="#process">5.4　處理樣品</a></li><li class="sub"><a href="#rdcat">5.5　研發分類與「沿用既有配方」</a></li><li class="sub"><a href="#dispatch">5.6　寄件作業（批次寄出）</a></li><li class="sub"><a href="#extend">5.7　展延申請</a></li><li class="sub"><a href="#history">5.8　打樣歷程</a></li><li class=""><a href="#docs">6　文件處理與報價（品管／研發）</a></li><li class="sub"><a href="#docsplit">6.1　一個申請拆成各自的工作項目</a></li><li class="sub"><a href="#docview">6.2　文件處理頁籤與期限</a></li><li class="sub"><a href="#quote">6.3　報價索取：研發只提供原料成本</a></li><li class=""><a href="#dash">7　儀表板</a></li><li class="sub"><a href="#hit">7.1　打擊率怎麼算</a></li><li class="sub"><a href="#custdash">7.2　客戶看到的儀表板</a></li><li class=""><a href="#admin">8　管理者／最高管理員</a></li><li class="sub"><a href="#users">8.1　使用者管理與 LINE 綁定</a></li><li class="sub"><a href="#speed">8.2　時效設定</a></li><li class=""><a href="#faq">9　常見問題</a></li><li class=""><a href="#log">10　更新紀錄</a></li></ol></details>
+<div class="cards c2">
+  <a class="card role" href="#sales"><h4>我是業務／業務助理</h4><p>建立案件、追蹤進度、傳回饋小卡、作廢案件</p></a>
+  <a class="card role gold" href="#rd"><h4>我是研發／研發主管</h4><p>樣品處理、寄件作業、展延、暫停與恢復</p></a>
+  <a class="card role slate" href="#docs"><h4>我是品管／品管主管</h4><p>文件處理（COA／報價）與送驗、報價原料成本</p></a>
+  <a class="card role purple" href="#admin"><h4>我是管理者／最高管理員</h4><p>使用者、時效設定、身分切換</p></a>
+</div>
+
+<h2 id="intro"><span class="no">1</span>系統簡介與登入</h2>
+<p class="lead">百鮮企業樣品開發追蹤系統，用來管理客戶的樣品開發需求、文件索取（COA／報價）與案件全流程進度。從提出需求、研發打樣、寄出到客戶回饋定案，業務、研發、品管與管理者都在同一個地方掌握進度。</p>
+
+<h3 id="login"><span class="no">1.1</span>如何登入</h3>
+<p>系統全面使用 LINE 登入，同仁不需要記帳號密碼。用手機或電腦瀏覽器開啟系統網址，畫面上只會看到「使用 LINE 登入」按鈕。</p>
+<figure><div class="fig"><img src="assets/img/login.png" alt="登入畫面" width="420"></div><figcaption>圖 1　登入畫面（手機瀏覽器）</figcaption></figure>
+<ul>
+  <li><b>手機瀏覽器</b>：點下去會直接用目前的 LINE 帳號登入，已登入過會自動略過。</li>
+  <li><b>電腦瀏覽器</b>：會顯示 QR Code，用手機 LINE 掃描即可。</li>
+  <li><b>從 LINE App 內打開</b>（例如點同事分享的連結）：建議點右上角選單，選「用瀏覽器開啟」，改用 Safari／Chrome 較穩定。</li>
+</ul>
+<div class="callout"><span class="h">尚未綁定 LINE 的新同仁</span>無法直接用 LINE 登入，請管理者在「使用者管理」產生綁定連結（見 <a href="#users">8.1</a>）。系統管理者（Admin）帳號用登入頁最下方的「系統管理者登入」小連結，以工號密碼登入。</div>
+
+<h3 id="switch"><span class="no">1.2</span>多重身分切換</h3>
+<p>同一個帳號可以有多個角色（例如同時是業務與管理者）。有兩個以上身分時，側邊選單（手機版在頂部）會出現<b>身分切換</b>下拉選單：</p>
+<ul>
+  <li>切換後只以所選身分操作，其他身分的選單與功能暫時隱藏，頁面上方會出現橫幅提醒「目前僅以 ○○ 身分操作」。</li>
+  <li>選回預設，就恢復顯示全部角色的權限。</li>
+  <li><b>最高管理員</b>另外多一個「客戶（預覽）」選項，可以看到客戶實際看到的畫面（儀表板提醒、案件列表、回饋功能）。不會讓你逐一以某位客戶身分登入，只是方便檢查客戶端的呈現。</li>
+</ul>
+
+<h3 id="outage"><span class="no">1.3</span>系統連不上資料庫時</h3>
+<p>系統的資料存放在 Google Sheet。若連線中斷，整個畫面會改成「<b>系統目前無法連接到資料庫</b>」並列出原因，期間<b>不會讀寫任何資料</b>，所以不會出現「看起來沒資料」或誤寫到暫存區的情況。</p>
+<ol class="steps">
+  <li>按畫面上的 <span class="ui">重新嘗試連線</span>，系統會立刻重試。</li>
+  <li>若仍失敗，等幾分鐘再按一次；多數是 Google 端短暫連線異常。</li>
+  <li>持續失敗請通知系統管理員，提供畫面上顯示的錯誤原因。</li>
+</ol>
+<p>畫面上也會註明：這不是帳號或資料被清除，案件、樣品與 LINE 綁定資料都還在，只是暫時讀取不到。恢復連線後會正常顯示，不需要重新綁定。</p>
+
+<h2 id="roles"><span class="no">2</span>角色與權限總覽</h2>
+<p>系統依工作內容分成多種角色，每個人看到的選單和資料範圍不同；一個帳號可同時具備多個角色。</p>
+<div class="cards">
+  <div class="card role"><h4>業務／業務助理</h4><ul><li>建立客戶、建立案件</li><li>客戶名單共用，但案件只看得到自己建立或自己負責的</li><li>傳送回饋小卡、代填回饋</li><li>審核研發的展延申請</li></ul></div>
+  <div class="card role gold"><h4>研發／研發主管</h4><ul><li>品研工作台處理樣品、寄件作業</li><li>研發主管負責分配研發人員</li><li>研發備註、打樣歷程（僅內部可見）</li><li>申請工時展延、暫停／恢復單項需求</li></ul></div>
+  <div class="card role slate"><h4>品管／品管主管</h4><ul><li>文件處理：COA、報價等文件</li><li>標記已送驗</li><li>品管主管可指派文件負責人</li><li>與研發一樣看得到全部案件</li></ul></div>
+  <div class="card role purple"><h4>管理者／最高管理員</h4><ul><li>使用者管理、時效設定</li><li>看得到全部資料，含研發備註</li><li>最高管理員可切換成客戶預覽</li></ul></div>
+  <div class="card role gray"><h4>客戶（LINE 會員）</h4><ul><li>綁定 LINE 後查詢自己公司的案件</li><li>隨時對已寄出的樣品填寫回饋</li><li>儀表板有待回饋、待付款提醒</li><li>看不到研發備註與案件備註</li></ul></div>
+</div>
+
+<h3 id="menu"><span class="no">2.1</span>各角色看得到的選單</h3>
+<div class="tw wide"><table>
+<thead><tr><th>選單</th><th class="c">最高管理員／管理者</th><th class="c">業務助理／業務</th><th class="c">研發主管／研發</th><th class="c">品管主管／品管</th><th class="c">客戶</th></tr></thead>
+<tbody>
+<tr><td>儀表板</td><td class="y">✔</td><td class="y">✔</td><td class="y">✔</td><td class="y">✔</td><td class="y">✔</td></tr>
+<tr><td>客戶管理</td><td class="y">✔</td><td class="y">✔</td><td class="n">—</td><td class="n">—</td><td class="n">—</td></tr>
+<tr><td>案件</td><td class="y">✔</td><td class="y">✔</td><td class="y">✔</td><td class="y">✔</td><td class="y">✔</td></tr>
+<tr><td>品研工作台</td><td class="y">✔</td><td class="y">✔</td><td class="y">✔</td><td class="y">✔</td><td class="n">—</td></tr>
+<tr><td>提醒中心</td><td class="y">✔</td><td class="y">✔</td><td class="n">—</td><td class="n">—</td><td class="n">—</td></tr>
+<tr><td>時效設定</td><td class="y">✔</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td></tr>
+<tr><td>使用者管理</td><td class="y">✔</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td></tr>
+</tbody></table></div>
+<div class="callout info"><span class="h">研發備註、案件備註客戶完全看不到</span>這些是內部溝通用的欄位，客戶只會看到案件目前走到哪個階段。這是刻意的保密設計。</div>
+
+<h2 id="lifecycle"><span class="no">3</span>案件與樣品的生命週期</h2>
+<p>一個「案件」可以包含多項「樣品需求」，<b>每一項樣品需求各自走自己的流程</b>。例如同一個案件有 3 個口味，其中一個客戶不做了，只會暫停那一項，其餘兩項照常進行。</p>
+
+<figure><div class="fig">
+<svg class="diagram" viewBox="0 0 940 280" role="img" aria-label="樣品需求流程圖">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="arr"/></marker></defs>
+<!-- 第一列 -->
+<rect class="n-st" x="10" y="20" width="140" height="62" rx="12"/><text class="t1" x="80" y="47" text-anchor="middle">建立案件</text><text class="t2" x="80" y="67" text-anchor="middle">待分配</text>
+<rect class="n-go" x="205" y="20" width="140" height="62" rx="12"/><text class="t1" x="275" y="47" text-anchor="middle">打樣中</text><text class="t2" x="275" y="67" text-anchor="middle">主管分配研發</text>
+<rect class="n-go" x="400" y="20" width="140" height="62" rx="12"/><text class="t1" x="470" y="47" text-anchor="middle">已備妥</text><text class="t2" x="470" y="67" text-anchor="middle">填樣品編號</text>
+<rect class="n-st" x="595" y="20" width="140" height="62" rx="12"/><text class="t1" x="665" y="47" text-anchor="middle">已寄出</text><text class="t2" x="665" y="67" text-anchor="middle">寄件作業</text>
+<rect class="n-go" x="790" y="20" width="140" height="62" rx="12"/><text class="t1" x="860" y="47" text-anchor="middle">待回饋</text><text class="t2" x="860" y="67" text-anchor="middle">第 3 天起傳小卡</text>
+<path class="ln" d="M150 51H203" marker-end="url(#ah)"/><path class="ln" d="M345 51H398" marker-end="url(#ah)"/>
+<path class="ln" d="M540 51H593" marker-end="url(#ah)"/><path class="ln" d="M735 51H788" marker-end="url(#ah)"/>
+<!-- 匯流排 -->
+<path class="ln" d="M860 82V140"/><path class="ln" d="M240 140H860"/>
+<path class="ln" d="M240 140V178" marker-end="url(#ah)"/><path class="ln" d="M470 140V178" marker-end="url(#ah)"/>
+<path class="ln" d="M665 140V178" marker-end="url(#ah)"/><path class="ln" d="M860 140V178" marker-end="url(#ah)"/>
+<!-- 第二列：結果 -->
+<rect class="n-bad" x="170" y="180" width="140" height="62" rx="12"/><text class="t1" x="240" y="207" text-anchor="middle">需調整</text><text class="t2" x="240" y="227" text-anchor="middle">客戶要改方向</text>
+<rect class="n-gr" x="400" y="180" width="140" height="62" rx="12"/><text class="t1" x="470" y="207" text-anchor="middle">暫停（暫無需求）</text><text class="t2" x="470" y="227" text-anchor="middle">只暫停這一項</text>
+<rect class="n-ok" x="595" y="180" width="140" height="62" rx="12"/><text class="t1 w" x="665" y="207" text-anchor="middle">配方定案</text><text class="t2 w" x="665" y="227" text-anchor="middle">列入打擊率／KPI</text>
+<rect class="n-pu" x="790" y="180" width="140" height="62" rx="12"/><text class="t1" x="860" y="207" text-anchor="middle">常規出貨</text><text class="t2" x="860" y="227" text-anchor="middle">不列入打擊率</text>
+<!-- 需調整回到打樣中 -->
+<path class="ln dash" d="M290 180V84" marker-end="url(#ah)"/>
+<text class="lbl" x="298" y="118">重新打樣（新一輪）</text>
+<!-- 暫停可恢復 -->
+<text class="lbl" x="470" y="262" text-anchor="middle">可隨時「恢復」，回到原本狀態</text>
+</svg></div>
+<div class="legend"><span><i style="background:var(--gold-lt);border-color:var(--gold)"></i>進行中／需有人處理</span><span><i style="background:var(--green-lt);border-color:var(--green)"></i>等待中</span><span><i style="background:var(--green);border-color:var(--green)"></i>完成</span><span><i style="background:var(--red-lt);border-color:var(--red)"></i>需重新處理</span><span><i style="background:var(--purple-lt);border-color:var(--purple)"></i>常規品</span><span><i style="background:var(--cream);border-color:#8a8574"></i>暫停</span></div>
+<figcaption>圖 2　樣品需求流程（每一項樣品各自獨立）</figcaption></figure>
+
+<h3 id="status"><span class="no">3.1</span>狀態說明</h3>
+<div class="tw"><table>
+<thead><tr><th>狀態</th><th>說明</th></tr></thead>
+<tbody>
+<tr><td><span class="bdg b-gray">待分配</span></td><td>案件剛建立，研發主管還沒指派研發人員。上班時間 4 小時內應完成分配，超過會出現「⚠ 逾期未分配」警示。</td></tr>
+<tr><td><span class="bdg b-amber">打樣中</span></td><td>已指派研發人員，正在實際製作樣品，時限開始計算。</td></tr>
+<tr><td><span class="bdg b-green">已備妥</span></td><td>樣品做好、填了樣品編號，等待寄出。這一步完成後，接手的是<b>寄件作業</b>（可依客戶合併寄出）。</td></tr>
+<tr><td><span class="bdg b-ink">已寄出</span></td><td>樣品已寄給客戶，等待試用後回饋。</td></tr>
+<tr><td><span class="bdg b-amber">待回饋</span></td><td>業務已傳回饋小卡（或客戶自己從案件記錄進入），等客戶填寫。</td></tr>
+<tr><td><span class="bdg b-red">需調整</span></td><td>客戶要求調整，研發重新打樣，開啟新一輪、時限重新起算（速別顯示為「第 N 次調整」）。</td></tr>
+<tr><td><span class="bdg b-ok">配方定案</span></td><td>客戶確認採用這個配方；列入打擊率、研發 KPI 與開發費退費追蹤。</td></tr>
+<tr><td><span class="bdg b-purple">常規出貨</span></td><td>（客戶端顯示為「已完成」）非開發樣品（研發分類不是新品開發／設計變更）。研發寄出後<b>自動結案</b>為此狀態，不用等客戶回饋；不進定案配方，也不列入打擊率與 KPI。</td></tr>
+<tr><td><span class="bdg b-ink">已結案</span></td><td>這一項樣品需求被結案（客戶不要這項了）。同案件其他樣品照常進行；資料保留、可重新開啟，不再出現在研發工作清單。</td></tr>
+<tr><td><span class="bdg b-gray">暫停</span></td><td>這一項需求被暫停（客戶暫無需求、或人工暫停）。<b>暫停的項目一律只顯示「暫停」</b>，不會再顯示「打樣中」等進行中狀態，也不計逾時；可以恢復。</td></tr>
+</tbody></table></div>
+
+<h4>案件本身的狀態</h4>
+<p><span class="bdg b-amber">進行中</span>　還有樣品需求未完結。　<span class="bdg b-ok">已定案</span>　所有需求都結束（定案、常規出貨，或部分被結案）時自動轉換。　<span class="bdg b-gray">案件暫停</span>　整個案件暫停。　<span class="bdg b-ink">已結案</span>　案件裡每一項樣品都被結案（客戶全部不要了）時<b>自動</b>轉換，不能手動設定（見 <a href="#itemctl">4.4</a>）。　<span class="bdg b-red">已作廢</span>　案件被作廢，資料保留（見 <a href="#void">4.5</a>）。</p>
+
+<h3 id="stamp"><span class="no">3.2</span>每個階段的日期時間</h3>
+<p>案件詳情裡每一項樣品上方有一條進度條。<b>滑鼠移到某個階段上（電腦）或點一下該階段（手機）</b>，就會跳出該階段發生的日期與時間。在手機點一下會釘住顯示，再點一次關閉。</p>
+<figure><div class="fig"><div class="mock" style="max-width:420px"><div class="mb">
+<div class="pipe" style="padding-top:26px">
+ <div class="s d"><div class="dot"></div>待分配</div>
+ <div class="s d"><div class="dot"></div>打樣中</div>
+ <div class="s d" style="position:relative"><span class="tip">2026-10-08 14:32</span><div class="dot"></div>已備妥</div>
+ <div class="s c"><div class="dot"></div>已寄出</div>
+ <div class="s"><div class="dot"></div>待回饋</div>
+ <div class="s"><div class="dot"></div>定案</div>
+</div></div></div></div><figcaption>圖 3　進度條與階段時間提示（示意）</figcaption></figure>
+
+<h2 id="sales"><span class="no">4</span>業務／業務助理</h2>
+
+<h3 id="customers"><span class="no">4.1</span>客戶管理</h3>
+<p>側邊選單「客戶管理」可新增、編輯、刪除客戶。客戶名單由所有業務共用，任何業務都能選用來建案；但<b>案件本身只有自己建立或自己負責的才看得到</b>（見 <a href="#caselist">4.3</a>）。</p>
+<ul>
+  <li>新增時系統會檢查客戶名稱是否重複（自動忽略前後空白），重複會擋下並告訴你已有的客戶編號。</li>
+  <li>客戶編號建議對應 NetSuite 編號；不知道可以留白，系統先給暫用編號（<code>TMP-</code> 開頭），之後再補。</li>
+  <li>刪除：只有「底下完全沒有案件」的客戶才能刪，且只能刪自己建立的（管理者不受此限）。</li>
+  <li>客戶列表會顯示「<span class="bdg b-ok">● 正式會員</span>／<span class="bdg b-gray">未註冊</span>」。客戶不需要另外申請：<b>第一次點開你傳的回饋小卡時，會自動引導他註冊並綁定 LINE</b>（見 <a href="customer.html">客戶端手冊</a>）。</li>
+</ul>
+
+<h3 id="newcase"><span class="no">4.2</span>建立案件</h3>
+<p>「案件」頁面右上角按 <span class="ui">＋ 新增</span>，面板會從右側滑出，不必離開列表。可切換<b>樣品申請</b>與<b>文件申請</b>。</p>
+<h4>樣品申請</h4>
+<ol class="steps">
+  <li>選擇客戶（可輸入編號、名稱、聯絡人或電話搜尋，也能在下拉選單裡快速新增客戶）。</li>
+  <li>填案件速別（特急件／急件／普通件）、重要性、收費方式。</li>
+  <li>選「不收費」要填原因（例如策略合作、內部測試），沒填送不出去。</li>
+  <li>選寄送方式（整個案件統一一種）。</li>
+  <li>逐項填樣品需求：<b>樣品名稱</b>（必填）、說明、重量、份量、寄送地址（留空用客戶預設地址）。按 <span class="ui">＋ 加入需求項</span> 可一次送出多筆。</li>
+  <li>確認開發費試算後送出。收費案件送出後，系統會問是否立即傳送「報價單開立申請」小卡給業務助理。</li>
+</ol>
+<div class="callout tip"><span class="h">開發費怎麼算</span>1～3 項每項 NT$1,500（未稅）；超過 3 項，全部每項 NT$2,000（未稅）；營業稅 5%。選「不收費」則全案為 0。</div>
+<div class="callout"><span class="h">速別、重要性、收費方式建立後不能改</span>要調整請作廢後重建。送出按鈕按下後會立刻變成「送出中…」並鎖住，避免連點造成重複建案。</div>
+
+<h4>文件申請（COA／報價／其他）</h4>
+<p>可以附加在已存在的樣品需求上（例如定案後要出 COA），也可以「獨立索取」（不綁特定樣品，例如客戶只想要一份報價單）。勾選文件類型、填需求說明後送出。<b>同時勾選多種類型，系統會自動拆成各自獨立的工作項目</b>（見 <a href="#docs">6</a>），送出後會提示拆成幾筆。</p>
+
+<h3 id="caselist"><span class="no">4.3</span>案件列表</h3>
+<p>「案件」頁面有四個頁籤：<b>全部、樣品申請、文件申請、已寄出樣品</b>。</p>
+<ul>
+  <li>業務／業務助理只看得到自己建立、或自己是責任業務的案件。</li>
+  <li>點欄位標題可排序（第一次由大到小，再點反過來）；搜尋欄可用案件編號、客戶、責任業務、經手研發、建立者查找。</li>
+  <li><b>已定案的案件會自動沉到列表後面</b>，已作廢的更後面，進行中的案件永遠在前面。</li>
+  <li>每列最左邊的星號可「釘選」置頂，這是個人設定，不影響同事。</li>
+  <li><b>已作廢案件預設隱藏</b>，勾選列表上的「顯示已作廢案件」就會出現（見 <a href="#void">4.5</a>）。</li>
+  <li>列表下方可選每頁 10／20／50 筆。手機版的欄位會自動收合，案件／樣品名稱、地址、備註過長時會自動換行。</li>
+</ul>
+
+<h3 id="itemctl"><span class="no">4.4</span>單項樣品的暫停、結案與回饋</h3>
+<p>案件裡每一項樣品都能單獨處理，<b>不會影響同案件的其他樣品</b>。</p>
+<div class="tw"><table>
+<thead><tr><th>情境</th><th>怎麼做</th><th>對打擊率的影響</th></tr></thead>
+<tbody>
+<tr><td>客戶只取消其中一項（暫無需求）</td><td>在該項點「回饋」或「提醒中心 → 回饋提醒」填寫，選 <span class="ui">暫無需求</span>，<b>必須填取消／暫停原因</b>。</td><td>若這項還沒開始處理（仍為待分配）→ <b>不列入</b>；若已經有人處理過 → 仍算一次沒打中。</td></tr>
+<tr><td>暫時停一下，之後可能繼續</td><td>在案件詳情的該項點 <span class="ui">暫停此項</span>；要繼續時點 <span class="ui">恢復此項</span>。暫停期間不計逾時。</td><td>依該項是否已開始處理，規則同上。</td></tr>
+<tr><td>客戶<b>不要這項了</b>（不會再繼續）</td><td>在案件詳情該項點 <span class="ui">結案</span>（或在代填回饋選 <span class="ui">⛔ 結案（客戶不要了）</span>），<b>必須填結案原因</b>。之後想繼續可按 <span class="ui">重新開啟</span>。</td><td>若這項還沒開始處理（待分配）→ <b>不列入</b>；已經處理過 → 仍算一次沒打中。</td></tr>
+<tr><td>客戶要的是常規品／單方原料</td><td>由<b>研發</b>在處理需求時把「研發分類」選成非開發分類（見 <a href="#rdcat">5.5</a>），寄出後系統自動結案為常規出貨；業務也仍可代填 <span class="ui">📦 常規品／原料出貨</span>。</td><td>不列入打擊率。</td></tr>
+</tbody></table></div>
+<p>已暫停的項目，在列表與研發工作台只顯示「<span class="bdg b-gray">暫停</span>」，且會排在最後面。</p>
+<div class="callout info"><span class="h">暫停和結案差在哪？</span><b>暫停</b>＝暫時停一下、之後可能繼續，項目仍留在品研工作台的「暫停」頁籤；<b>結案</b>＝客戶不要這項了，會從研發的工作清單、寄件作業與回饋提醒中完全移除（案件詳情仍看得到、可重新開啟）。</div>
+<h4>結案後會發生什麼</h4>
+<ul>
+  <li>只影響這一項；同案件其他樣品完全不受影響。</li>
+  <li>客戶端：這項顯示「已結案」，不再有「填寫回饋」按鈕。</li>
+  <li>案件狀態自動判斷：<b>所有樣品都被結案</b> → 案件轉為 <span class="bdg b-ink">已結案</span>；樣品都結束但有定案或常規出貨 → <span class="bdg b-ok">已定案</span>；還有樣品在進行 → 維持進行中。重新開啟任何一項，案件就回到進行中。</li>
+  <li>誰可以結案／重新開啟：業務、業務助理（本人案件）、研發、研發主管、管理者、最高管理員。已定案或常規出貨的樣品不需要結案。</li>
+</ul>
+
+<h3 id="void"><span class="no">4.5</span>刪除與作廢案件</h3>
+<div class="callout info"><span class="h">客戶不要了，是結案還是作廢？</span>客戶不要某一項樣品（或每一項都不要了）→ 用<a href="#itemctl">單項結案</a>。作廢是整個案件「不該存在」（例如建錯、重複建立），預設會隱藏。</div>
+
+<p>案件詳情右上角的按鈕會依狀態自動變化：</p>
+<div class="tw"><table>
+<thead><tr><th>案件狀況</th><th>按鈕</th><th>結果</th></tr></thead>
+<tbody>
+<tr><td>所有樣品都還在「待分配」（研發完全沒開始）</td><td><span class="ui warn">刪除</span></td><td>直接刪除，不留紀錄。</td></tr>
+<tr><td>已有任何一項被處理過</td><td><span class="ui warn">作廢</span></td><td>必須填寫<b>作廢原因</b>，案件標記為「已作廢」，資料保留可查，不會真的消失。</td></tr>
+</tbody></table></div>
+<ul>
+  <li>可刪除／作廢的人：案件建立者與最高管理員。<b>有處理進度的案件，任何人（含最高管理員）都不能直接永久刪除</b>，只能作廢。</li>
+  <li>作廢後案件預設從列表隱藏；勾選「顯示已作廢案件」可以重新看到，詳情頁會顯示作廢原因。</li>
+  <li>已開始處理過的樣品，作廢後仍會計入打擊率（算一次沒打中）；尚在待分配的項目則不計。</li>
+  <li>如果客戶只是不要其中一項，請用 <a href="#itemctl">4.4 的單項結案</a>，不要整案作廢。</li>
+</ul>
+
+<h3 id="remind"><span class="no">4.6</span>提醒中心</h3>
+<p>選單上的數字就是你有幾件事待處理。頁籤如下：</p>
+<div class="tw fc"><table>
+<thead><tr><th>頁籤</th><th>說明</th></tr></thead>
+<tbody>
+<tr><td>回饋提醒</td><td>樣品寄出後<b>第 3 天起</b>（送達當天算第 1 天），可傳送「回饋確認小卡」給客戶；也可在這裡代填回饋（例如客戶電話口頭回覆）。</td></tr>
+<tr><td>開發費退費提醒</td><td>配方定案後，客戶超過約定期限沒下正式訂單，提醒退還開發費。</td></tr>
+<tr><td>績效指標提醒</td><td>配方定案後一年內的訂單可列入研發 KPI；接近到期提醒把握時間追單。</td></tr>
+<tr><td>展延審核</td><td>研發申請的工時展延，由責任業務或案件建立人核准／駁回。</td></tr>
+</tbody></table></div>
+
+<h4>傳送回饋小卡</h4>
+<ul>
+  <li>在 LINE App 內開啟系統：會跳出好友選擇器，選客戶的聊天室，小卡以<b>你個人的 LINE</b> 送出。</li>
+  <li>在電腦瀏覽器：按「複製回饋連結」，貼進與客戶的 LINE 對話，效果相同。</li>
+  <li>兩種方式都會寫入通知記錄，並把樣品轉為「待回饋」。</li>
+</ul>
+<div class="callout"><span class="h">代填回饋的選項</span>
+  <span class="ui">✅ 配方定案</span>　<span class="ui">📝 需調整</span>（要填調整內容）　<span class="ui">📦 常規品／原料出貨</span>　<span class="ui">暫無需求</span>（要填原因）。<br>
+  客戶要的是廠內常規品或原料時，請選「常規品／原料出貨」，不要選「配方定案」，否則會誤列入 KPI。（研發若已把分類選成非開發，樣品寄出後會自動結案，不需要代填。）</div>
+<div class="callout info"><span class="h">客戶也能自己填</span>客戶不需要等小卡：綁定 LINE 後可隨時從「我的案件記錄」或網頁儀表板，對已寄出的樣品自行填寫回饋（只有「配方定案」與「需調整」兩個選項）。詳見<a href="customer.html">客戶端手冊</a>。</div>
+
+<h3 id="shipped"><span class="no">4.7</span>已寄出樣品查詢</h3>
+<p>「案件」頁面的「已寄出樣品」頁籤，列出你名下所有已寄出、正在等客戶回饋的樣品，不必逐案點開。</p>
+
+<h2 id="rd"><span class="no">5</span>研發／研發主管</h2>
+
+<h3 id="rdflow"><span class="no">5.1</span>作業流程一覽</h3>
+<div class="flow">
+  <div class="f"><span class="who">研發主管</span><b>① 分配</b><span>在「樣品處理」按「指派」選研發人員；4 小時（工作時間）內完成。</span></div>
+  <div class="f x"><span class="who">研發</span><b>② 打樣中</b><span>實際製作樣品；超時需要時申請展延。</span></div>
+  <div class="f x"><span class="who">研發</span><b>③ 已備妥</b><span>在處理表單填樣品編號與日期，系統自動轉「已備妥」。</span></div>
+  <div class="f"><span class="who">研發／寄件</span><b>④ 寄件作業</b><span>勾選同一客戶已備妥的樣品，一次填追蹤編號寄出。</span></div>
+  <div class="f"><span class="who">業務</span><b>⑤ 等客戶回饋</b><span>第 3 天起傳小卡；客戶回饋後進入定案或新一輪。</span></div>
+</div>
+<p><b>「打樣中」與「已備妥」的差別：</b>打樣中＝還在做；已備妥＝樣品做好、已有樣品編號，只差寄出。已備妥的樣品會出現在「寄件作業」頁籤，統一處理寄送。</p>
+
+<h3 id="board"><span class="no">5.2</span>品研工作台總覽</h3>
+<p>側邊選單「品研工作台」是研發、品管的主要畫面，上方頁籤：</p>
+<div class="tw fc"><table>
+<thead><tr><th>頁籤</th><th>用途</th></tr></thead>
+<tbody>
+<tr><td><span class="ui">樣品處理</span></td><td>所有還需要研發動作的樣品需求。子頁籤：<b>全部／待分配／打樣中／已備妥／需調整／暫停</b>。</td></tr>
+<tr><td><span class="ui">寄件作業</span></td><td>已備妥、等待寄出的樣品，依客戶分組，可批次寄出。</td></tr>
+<tr><td><span class="ui">文件處理</span></td><td>COA、報價等文件的處理（見 <a href="#docs">6</a>）。</td></tr>
+<tr><td><span class="ui">定案配方列表</span></td><td>已配方定案的配方清單。頁籤顯示總筆數，可選每頁 10／20／50 筆。</td></tr>
+<tr><td><span class="ui">已寄出樣品</span></td><td>已寄出、等客戶回饋的樣品，頁籤顯示筆數，可選每頁 10／20／50 筆。已寄出的不會出現在「樣品處理」，要看請切到這裡。</td></tr>
+</tbody></table></div>
+<ul>
+  <li>列表<b>每一列是一項樣品需求</b>，不是整個案件。點「打樣中」或「已備妥」的那一列，會<b>直接開啟該樣品的處理畫面</b>，不用先進整個案件；其他狀態才會開啟案件詳情。</li>
+  <li>「全部」頁籤的排序：進行中的在前，<b>配方定案往後移，常規出貨（紫色）再後面，暫停放最後</b>。</li>
+  <li><b>暫停的樣品只出現在「暫停」頁籤</b>，不會重複出現在「打樣中」等頁籤。</li>
+  <li>點欄位標題排序、搜尋欄查找、星號釘選，用法與案件列表相同。</li>
+</ul>
+
+<h3 id="assign"><span class="no">5.3</span>待分配與指派</h3>
+<p>新案件建立後，樣品名稱旁會有紅色 <span class="bdg b-red">NEW</span>。研發主管需在<b>上班時間</b>（週一至週五 08:00–12:00、13:00–17:00，扣除國定假日）4 小時內完成指派，逾時轉為「⚠ 逾期未分配」。點 <span class="ui">指派</span> 選研發人員，狀態自動轉為「打樣中」並開始計時。</p>
+<p>一般研發人員只會看到<b>指派給自己</b>的項目，看不到待分配的。</p>
+
+<h3 id="process"><span class="no">5.4</span>處理樣品</h3>
+<p>開啟處理表單後，最上方會集中這次需要的資訊：</p>
+<ul>
+  <li><b>寄送資訊</b>：直接顯示收件人、電話、地址，旁邊有 <span class="ui">複製收件資訊</span>。</li>
+  <li><b>樣品貼紙內容</b>：自動組好「客戶／樣品／數量／給樣日期／有效期限（自動抓一年後）／公司名稱／電話」，可直接編輯，再按 <span class="ui">複製貼紙內容</span> 貼到貼紙軟體。</li>
+  <li>填<b>樣品編號與日期</b>（自動產生樣品編號、轉「已備妥」）。</li>
+  <li><b>研發備註</b>：僅研發相關角色與管理者看得到，業務、客戶看不到。</li>
+</ul>
+<div class="callout tip"><span class="h">動手前先看清楚</span>想看完整的樣品說明、案件備註、同案件其他項目，請進案件詳情；處理表單則用來快速填寫。</div>
+
+<h3 id="rdcat"><span class="no">5.5</span>研發分類與「沿用既有配方」</h3>
+<p>在「處理需求」表單的<b>研發分類</b>由研發決定樣品是不是「開發配方」。這個選擇會直接影響定案配方列表與打擊率，<b>寄出前一定要選好</b>：沒選分類的樣品系統不允許寄出（寄件作業裡會顯示紅色「未分類」且不能勾選）。分類只由研發設定，業務不需要操作。</p>
+<div class="tw fc"><table>
+<thead><tr><th>分類</th><th>性質</th><th>寄出後會怎樣</th></tr></thead>
+<tbody>
+<tr><td>新品開發、設計變更</td><td>開發配方</td><td>等客戶回饋；客戶確認定案 → 進「定案配方列表」，計入打擊率、研發 KPI、開發費退費追蹤。</td></tr>
+<tr><td>單方原料、既有常規品、原料成品、純代工、其他、新案通過</td><td>非開發</td><td><b>自動結案</b>為「常規出貨」。不等客戶回饋，不進定案配方，不計打擊率。</td></tr>
+<tr><td>沿用既有配方</td><td>非開發（沿用）</td><td>同上，並且要指定「沿用哪一筆定案配方」。</td></tr>
+<tr><td>（沒選）</td><td>未分類</td><td>不能寄出，請先選擇分類。</td></tr>
+</tbody></table></div>
+<h4>什麼時候選「沿用既有配方」</h4>
+<p>客戶要的配方，其實是公司之前已經為<b>另一個客戶</b>開發並定案的（例如原本只給 A 客戶，後來送樣給 B 客戶）。這時請在 B 客戶的樣品需求上：</p>
+<ol class="steps">
+  <li>開啟「品研工作台 → 樣品處理」，點該樣品的 <span class="ui">處理需求</span>（案件詳情裡的處理表單也一樣）。</li>
+  <li><b>研發分類</b>選 <span class="ui">沿用既有配方</span>，下方會出現「沿用哪一筆定案配方」，選出來源配方（顯示編號、樣品名稱、原客戶、定案日）。<b>沒選來源不能儲存。</b></li>
+  <li>照常填樣品編號、寄出。寄出後系統自動結案為「常規出貨」：不產生新的定案、不會把同一個配方重複算進打擊率。</li>
+</ol>
+<div class="callout info"><span class="h">客戶看得到嗎</span>客戶端<b>完全看不到</b>研發分類與沿用來源；這類樣品寄出後，對客戶只顯示「已完成」。B 客戶的案件就是一般的新案件，只是這項樣品不列入打擊率（避免同一配方重複計算）。</div>
+<div class="callout info"><span class="h">B 客戶下單怎麼登錄</span>由業務到「品研工作台 → 定案配方列表」找到<b>來源配方</b>，按「登錄成交訂單」，在<b>成交客戶</b>選擇 B 客戶（選單會列出原定案客戶與所有沿用這個配方的客戶）。訂單會標示「沿用・B 客戶」。</div>
+<div class="callout warn"><span class="h">沿用客戶的訂單與原客戶無關</span>B 客戶的訂單<b>不會</b>觸發 A 客戶的開發費退費；研發 KPI 以這個配方的<b>第一筆成交</b>（不分客戶）起算一年。配方原本是否能提供給其他客戶，請先確認保密或專屬約定，系統只負責記錄。</div>
+
+<h3 id="dispatch"><span class="no">5.6</span>寄件作業（批次寄出）</h3>
+<p>「寄件作業」頁籤把<b>已備妥</b>的樣品依客戶自動分組。同一客戶若有 3 項、只有 2 項先好，可以只勾那 2 項先寄，收件資訊與追蹤編號共用，<b>一次填寫即可</b>，不必每個樣品重填。</p>
+<figure><div class="fig"><div class="mock" style="max-width:440px"><div class="mb">
+  <div style="display:flex;justify-content:space-between;font-weight:900"><span>○○食品股份有限公司</span><span class="bdg b-green">3 項已備妥</span></div>
+  <div style="margin-top:6px">
+   <div class="chk"><i class="on"></i>DV-202610-014-01　草莓風味粉</div>
+   <div class="chk"><i class="on"></i>DV-202610-014-02　抹茶風味粉</div>
+   <div class="chk"><i></i>DV-202610-014-03　芒果風味粉　<small style="color:var(--ink2)">（尚未勾選）</small></div>
+  </div>
+  <div class="btnrow" style="margin-top:8px"><span class="btn">追蹤編號</span><span class="btn">寄出日期</span><span class="btn p">標記為已寄出（2 項）</span></div>
+</div></div></div><figcaption>圖 4　寄件作業（示意）</figcaption></figure>
+<ol class="steps">
+  <li>展開客戶，勾選要一起寄的樣品（項目 3 項以內預設展開）。</li>
+  <li>可按 <span class="ui">複製收件資訊</span>、<span class="ui">複製貼紙內容</span>（依勾選項目自動組多張）。</li>
+  <li>填追蹤編號、寄出日期，按 <span class="ui">標記為已寄出</span>，勾選的項目一次轉為「已寄出」。</li>
+</ol>
+
+<h3 id="extend"><span class="no">5.7</span>展延申請</h3>
+<p>樣品製作超過原本時限（例如原料延遲到貨）時，在案件詳情點 <span class="ui">展延</span>，填需要延長的時數與原因。送出後由責任業務或案件建立人審核；核准後時限自動延長，<b>審核期間不計逾時</b>。</p>
+<h4>傳送審核小卡，對方直接點選確認</h4>
+<p>送出展延後，畫面會詢問是否傳送「展延審核」小卡，選好聊天室（責任業務或主管）傳出去。<b>對方在 LINE 點小卡上的「查看並審核」，就能直接核准或駁回</b>（自動以綁定的 LINE 身分登入），不必另外開系統找案件。只有該案的責任業務、建立人或管理者看得到審核按鈕；審核後申請狀態與時限立即更新。</p>
+
+<h3 id="history"><span class="no">5.8</span>打樣歷程</h3>
+<p>樣品經過多輪調整時，案件詳情會有「打樣歷程」展開按鈕，列出每一輪的研發備註與回饋結果，換新一輪不會蓋掉前面的內容。這個功能只有研發、品管與管理者看得到。</p>
+
+<h2 id="docs"><span class="no">6</span>文件處理與報價（品管／研發）</h2>
+<p>品管、品管主管的權限與研發相近，主要差異是「品研工作台 → <span class="ui">文件處理</span>」：COA、報價等文件的處理，通常由品管（及被指派的研發）負責。</p>
+
+<h3 id="docsplit"><span class="no">6.1</span>一個申請拆成各自的工作項目</h3>
+<p>文件申請若同時勾選 <b>COA、報價、其他</b>，系統會<b>拆成各自獨立的文件申請</b>，各有自己的編號、負責人、期限與進度。例如 COA 先做完就可以先結案，不必等報價。</p>
+<div class="callout info"><span class="h">舊資料不會被改動</span>拆分只套用在新建立的申請；之前已經建立的、勾了多種類型的舊申請維持原樣。</div>
+
+<h3 id="docview"><span class="no">6.2</span>文件處理頁籤與期限</h3>
+<p>列表的「工時」欄顯示「已耗工時／時限」（例如 <span class="timechip ok">36/72h</span>），超過時限顯示逾時；詳情頁也有同樣的工時說明。</p>
+<p>「文件處理」可依進度分頁：<b>全部／待分配／準備中／已送驗／已完成</b>。「全部」的排序為：<b>待分配置頂 → 準備中／已送驗 → 已完成放最後</b>。</p>
+<div class="tw fc"><table>
+<thead><tr><th>文件類型</th><th>預設處理期限</th><th>說明</th></tr></thead>
+<tbody>
+<tr><td>COA</td><td>72 工時（3 個工作天）</td><td>自申請建立日起算，只計入工作日（扣除週六日與國定假日），和樣品需求的「工時」一樣。</td></tr>
+<tr><td>報價</td><td>120 工時（5 個工作天）</td><td>同上。</td></tr>
+<tr><td>其他</td><td>72 工時（3 個工作天）</td><td>其他資料索取。</td></tr>
+<tr><td>已送驗</td><td>168 工時（7 個工作天）</td><td>勾選 <span class="ui">🧪 標記已送驗</span> 後，改成「送驗起算 168 工時」，取代原期限。</td></tr>
+</tbody></table></div>
+<p>以上天數可由管理者在「時效設定」調整（見 <a href="#speed">8.2</a>）。處理步驟：主管按 <span class="ui">指派</span> 選出負責人，負責人再按 <span class="ui">填編號／規格</span>（產規書編號、報價單編號、各規格的重量與報價），完成後按 <span class="ui">標記已完成（已提供）</span>。</p>
+
+<h3 id="quote"><span class="no">6.3</span>報價索取：研發只提供原料成本</h3>
+<p>報價類的文件索取，<b>研發的作業只有提供原料成本</b>。研發在「填編號／規格」填好各規格的<b>原料成本</b>並儲存，<b>研發這一段就結束</b>，進度顯示為「已完成」，不會一直卡在未完成清單。報價、MOQ、報價單編號只是<b>報價記錄</b>，業務與研發都可以填，不再影響研發進度，<b>也不需要送審或核准</b>。</p>
+<div class="flow">
+  <div class="f"><span class="who">業務／業務助理</span><b>① 建立報價索取</b><span>勾選「報價」，填規格（每份克數、每包克數、每箱包數）。</span></div>
+  <div class="f x"><span class="who">研發主管</span><b>② 指派負責人</b><span>按 <span class="ui">指派</span> 選出研發。</span></div>
+  <div class="f x"><span class="who">研發</span><b>③ 填原料成本並儲存</b><span>在「填編號／規格」輸入各規格<b>原料成本</b>（成本與毛利率僅研發、管理者看得到）。儲存後進度變成「已完成」。</span></div>
+  <div class="f"><span class="who">業務／研發</span><b>④ 記錄報價</b><span>在同一個畫面填報價、MOQ、報價單編號作為記錄。業務看不到成本，儲存時系統會保留研發填的成本。</span></div>
+</div>
+<div class="callout info"><span class="h">欄位分工</span><b>原料成本</b>只有研發、管理者看得到也改得了（業務看不到成本與毛利率）；<b>報價與 MOQ</b> 業務、業務助理、研發、管理者都能填。報價不再有「送出審核」與「待核准」。</div>
+
+<h2 id="dash"><span class="no">7</span>儀表板</h2>
+<p>最上方是篩選列：<b>統計區間起／迄</b>（打擊率與平均準備時數依「寄出日」；案件數、已寄出比例、客戶結案依「申請日期」）、<b>個別業務（打擊率）</b>（管理者、業務助理可選）、<b>個別研發（KPI）</b>（管理者、研發主管可選）。</p>
+<div class="tw fc"><table>
+<thead><tr><th>區塊</th><th>內容</th></tr></thead>
+<tbody>
+<tr><td>案件概況</td><td>進行中案件、已定案案件、急件／特急件未結（排除常規出貨、暫停、已結案）、案件總數。<b>只計樣品申請的案件</b>，文件索取（COA／報價）不在內。</td></tr>
+<tr><td>打擊率</td><td>區間內<b>寄出</b>的開發樣品：配方定案數、已有結果的需求數、打擊率、待結果需求數（見 <a href="#hit">7.1</a>）。選「個別研發」就是該研發自己的打擊率。</td></tr>
+<tr><td>案件數統計</td><td>區間內（依申請日期）全部／收費／不收費案件數。</td></tr>
+<tr><td>已寄出樣品統計</td><td>區間內申請的<b>開發樣品</b>：需求數、已寄出數、已寄出比例（排除常規出貨與暫停；被客戶結案但已寄出的仍算已寄出）。</td></tr>
+<tr><td>客戶結案</td><td>區間內申請的樣品需求中，被客戶結案（不要了）的項數與比例，並彙整「結案原因」（相同文字合併計算）。</td></tr>
+<tr><td>趨勢圖</td><td>可切換<b>日／週／月</b>：案件數與樣品需求數、寄出數與定案數、打擊率、平均準備時數。選了個別業務／研發，圖也會跟著篩選。</td></tr>
+<tr><td>研發 KPI</td><td>平均準備時數（區間內寄出，另顯示排除展延的版本）、<b>本月 vs 上月</b>平均準備時數（看有沒有加快）、已完成樣品數、逾時項數與累計逾時時數、展延待審（只算你看得到的）。</td></tr>
+<tr><td>需求狀態分布</td><td>各狀態目前各有幾項。</td></tr>
+</tbody></table></div>
+
+<h3 id="hit"><span class="no">7.1</span>打擊率怎麼算</h3>
+<p><b>打擊率 ＝ 配方定案數 ÷ 已有結果的需求數。</b>以<b>寄出日</b>歸屬區間：樣品在哪個月寄出，就算那個月的，方便公平地看研發每個月的成績，也可搭配「個別研發」看個人。</p>
+<div class="cards">
+  <div class="card"><h4>✔ 列入（開發樣品）</h4><ul><li>研發分類為<b>新品開發、設計變更</b>且已寄出的樣品</li><li><b>配方定案</b>＝打中</li><li><b>客戶結案</b>（不要了）＝沒打中</li></ul></div>
+  <div class="card"><h4>⏳ 待結果（先不進分母）</h4><ul><li>已寄出、待回饋、需調整、暫停</li><li>顯示在「待結果需求數」，有結果後才計入</li></ul></div>
+  <div class="card"><h4>✘ 不列入</h4><ul><li>非開發分類（單方原料、既有常規品、<b>沿用既有配方</b>…），即 <span class="bdg b-purple">常規出貨</span></li><li>還沒寄出的樣品</li><li>已作廢案件</li></ul></div>
+</div>
+<div class="callout info"><span class="h">為什麼分母只算有結果的</span>剛寄出、客戶還在試的樣品還沒有答案，若先放進分母會壓低打擊率；等客戶定案或結案才計入，數字比較貼近實際成績。</div>
+<h4>平均準備時數：看有沒有進步</h4>
+<p>平均準備時數可依區間查看，另有「<b>本月 vs 上月</b>」比較（例如上月 52 h，本月 43 h，顯示「加快 17%」），也可看趨勢圖確認是否持續變快。</p>
+
+<h3 id="custdash"><span class="no">7.2</span>客戶看到的儀表板</h3>
+<p>客戶登入網頁後，儀表板最上方會有兩種提醒：</p>
+<ul>
+  <li><b>📝 待您回饋的樣品</b>：已寄出／待回饋／需調整的樣品，每項有「填寫回饋」按鈕。</li>
+  <li><b>💳 待付款開發費</b>：收費案件且尚未登錄匯款日期者，顯示含稅金額。</li>
+</ul>
+<p>最高管理員可以用「客戶（預覽）」確認這個畫面（見 <a href="#switch">1.2</a>）。</p>
+
+<h2 id="admin"><span class="no">8</span>管理者／最高管理員</h2>
+<h3 id="users"><span class="no">8.1</span>使用者管理與 LINE 綁定</h3>
+<ul>
+  <li>新增、停用帳號，設定角色（可同時勾選多個角色）。</li>
+  <li>「LINE 綁定」欄會顯示 <span class="bdg b-ok">已綁定</span>／<span class="bdg b-amber">待綁定</span>／<span class="bdg b-gray">未綁定</span>。</li>
+  <li>新同仁建好帳號後，按該列的 <span class="ui">綁定連結</span>（<b>一次性</b>），傳給本人；他用自己的 LINE 開啟，輸入<b>工號與生日（MMDD）</b>即完成綁定，之後就能用 LINE 登入。</li>
+  <li>一次要綁很多人：按 <span class="ui">📋 通用綁定連結</span>，可直接貼到群組，任何未綁定同仁用自己的 LINE 開啟、輸入自己的工號與生日即可，此連結可重複使用。</li>
+  <li>某人顯示「已綁定」卻無法登入（例如換了 LINE 帳號），先 <span class="ui">解除綁定</span>，再重新提供連結讓對方重綁。</li>
+</ul>
+<h3 id="speed"><span class="no">8.2</span>時效設定</h3>
+<p>側邊選單「時效設定」包含三個區塊：</p>
+<div class="tw fc"><table>
+<thead><tr><th>區塊</th><th>預設</th><th>說明</th></tr></thead>
+<tbody>
+<tr><td>案件速別時限</td><td>特急件 1、急件 3、普通件 5、調整件 5（工作日）</td><td>決定樣品需求的逾時判斷。</td></tr>
+<tr><td>文件類型時限</td><td>COA 3、報價 5、其他 3（工作日）</td><td>各類文件的處理期限，換算成工時（×24h）顯示，扣除週六日與國定假日，列表顯示「已耗／時限 h」。</td></tr>
+<tr><td>國定假日</td><td>—</td><td>會影響所有逾時、展延與 4 小時分配時限的計算。<b>建議每年初更新下一年度</b>。</td></tr>
+</tbody></table></div>
+<h2 id="faq"><span class="no">9</span>常見問題</h2>
+<details class="faq" id="faq1"><summary>登入頁一直顯示「LINE 登入暫時無法使用」？</summary><div>LINE 登入服務當下連線異常，請聯絡系統管理員；急用時系統管理者可用「系統管理者登入」的後備方式先登入。</div></details>
+<details class="faq" id="faq2"><summary>整個畫面顯示「系統目前無法連接到資料庫」？</summary><div>先按「重新嘗試連線」；仍失敗過幾分鐘再試。期間不會讀寫資料，恢復後資料與綁定都在。持續發生請通知系統管理員並附上畫面上的原因。</div></details>
+<details class="faq" id="faq3"><summary>我是這個客戶的責任業務，為什麼看不到某筆案件？</summary><div>案件可見範圍是「自己建立」或「自己是該案件的責任業務」。同事在你負責的客戶底下建立的案件你看得到；完全不相關（不是你建的、責任業務也不是你）就不會出現，這是正常的權限隔離。</div></details>
+<details class="faq" id="faq4"><summary>為什麼看不到「作廢」的案件？</summary><div>已作廢案件預設隱藏。到「案件」列表勾選「顯示已作廢案件」即可；詳情頁會顯示作廢原因。</div></details>
+<details class="faq" id="faq5"><summary>為什麼案件沒有「刪除」，只有「作廢」？</summary><div>只要案件裡有任何一項已被處理過，就不能直接刪除（避免誤刪有進度的資料），必須填原因作廢。全部還在待分配的案件才會顯示「刪除」。</div></details>
+<details class="faq" id="faq6b"><summary>客戶不要某個樣品（或整案都不要），怎麼辦？</summary><div>在案件詳情該項樣品按 <b>結案</b> 並填原因，只影響這一項。每一項都結案後，案件會自動變成「已結案」。「作廢」是給建錯、不該存在的案件用的。</div></details>
+<details class="faq" id="faq6"><summary>「暫停」和「結案」有什麼不同？</summary><div>暫停是暫時停一下，項目還留在研發的「暫停」頁籤，之後可「恢復」；結案是客戶不要這項了，會從研發工作清單移除，之後仍可「重新開啟」。兩者都只影響單一樣品。</div></details>
+<details class="faq" id="faq7"><summary>暫停的樣品為什麼不在「打樣中」頁籤？</summary><div>暫停的項目只顯示「暫停」，並只出現在「暫停」頁籤，避免誤以為仍在進行。恢復後會回到原本的狀態與頁籤。</div></details>
+<details class="faq" id="faq8"><summary>研發備註、打樣歷程為什麼客戶與業務看不到？</summary><div>這些是內部溝通與判斷用的欄位，刻意只給研發相關角色與管理者看，避免內部討論外流。</div></details>
+<details class="faq" id="faq9"><summary>客戶回饋選錯了怎麼辦？</summary><div>目前沒有「撤銷回饋」的介面，請聯絡系統管理者協助更正資料。</div></details>
+<details class="faq" id="faq10"><summary>報價索取，研發要做到什麼程度才算完成？</summary><div>只要填好原料成本並儲存，研發這一段就完成。報價與 MOQ 由業務之後補上，僅作為報價記錄。</div></details>
+
+<h2 id="log"><span class="no">10</span>更新紀錄</h2>
+<div class="log"><h4>v76　儀表板指標重整、展延審核小卡</h4><div class="d">打擊率改以「寄出日」歸屬、只計有結果（定案／客戶結案）的開發樣品，另列待結果數，可依個別研發查看；平均準備時數可看區間與本月 vs 上月，新增趨勢圖（寄出與定案、打擊率、平均準備時數）；已寄出比例加入區間與業務／研發篩選並排除非開發樣品；急件未結排除常規出貨、暫停與結案；展延待審依可視範圍計算；新增客戶結案統計與原因彙整。展延審核小卡新增「查看並審核」，收到的人可直接核准或駁回。研發分類未選不能寄出；客戶端看不到研發分類與沿用來源，常規出貨對客戶顯示為「已完成」。升級前請先執行 setup_sheet.py（新增欄位：沿用來源記錄、客戶編號、沿用需求編號）。</div></div>
+<div class="log"><h4>v75　研發分類、沿用既有配方、文件工時</h4><div class="d">文件索取期限改以「工時」顯示（和樣品需求相同，扣除週六日與國定假日）；報價、MOQ 研發也能填，原料成本維持業務看不到；取消送出審核與報價待核准功能；研發分類只有新品開發、設計變更算開發配方，其他分類寄出後自動結案為常規出貨、不進定案配方與打擊率；新增「沿用既有配方」分類與來源配方選擇，成交訂單可標明成交客戶（沿用客戶的訂單不觸發原客戶退費）。新增欄位：需求明細「沿用來源記錄」、成交訂單「客戶編號」「沿用需求編號」，部署前需執行 setup_sheet.py。</div></div>
+<div class="log"><h4>v74　文件索取調整</h4><div class="d">文件處理期限改以工作日計算（跳過週六日與國定假日）；報價索取改為研發只提供原料成本，儲存後研發作業即完成，報價與 MOQ 由業務填寫作為記錄，取消送出審核；品研工作台的定案配方列表加入分頁與總筆數，頁籤顯示定案配方與已寄出樣品的筆數。</div></div>
+<div class="log"><h4>v73　單項樣品「結案」</h4><div class="d">客戶不要某項樣品時，可針對該項「結案」（需填原因、可重新開啟），跟暫停一樣只影響該項；結案項目從品研工作台、寄件作業與回饋提醒中移除。案件在所有樣品都結案時自動轉為「已結案」。打擊率規則同暫無需求。新增「項目結案」「結案原因」「結案日期」欄位，部署後需執行一次 setup_sheet.py。</div></div>
+<div class="log"><h4>v70／v71　系統斷線保護</h4><div class="d">資料庫連不上時，整個畫面顯示明確錯誤並提供「重新嘗試連線」，不再顯示空資料；期間不寫入任何資料。（v71 為相同內容的重新部署）</div></div>
+<div class="log"><h4>v69　文件申請拆分</h4><div class="d">COA、報價、其他各自成為獨立工作項目；新增階段日期時間提示（滑鼠移上／手機點選）。</div></div>
+<div class="log"><h4>v56–v68　流程與介面強化</h4>
+<ul class="d">
+  <li>報價送審流程（未送審／待核准／已核准／已駁回）與管理者「報價待核准」提醒</li>
+  <li>客戶可隨時查看自己全部案件與樣品，並對各別樣品填寫回饋；客戶儀表板新增待回饋、待付款提醒</li>
+  <li>多重身分切換；最高管理員可預覽客戶畫面</li>
+  <li>案件「作廢」（取代刪除）、作廢原因、顯示／隱藏切換；單項「暫無需求」只影響該樣品</li>
+  <li>打擊率規則調整（有處理過的需求一律列入）；已定案案件自動沉到列表後面</li>
+  <li>品研工作台：直接處理單項樣品、寄件作業批次寄出、暫停獨立頁籤、常規出貨改紫色</li>
+  <li>頁籤改名：案件申請→樣品處理、文件申請→文件處理、定案配方明細表→定案配方列表</li>
+  <li>文件處理狀態分頁與排序；各文件類型獨立時限（時效設定）</li>
+  <li>手機版面：需求項目欄位重排、長文字自動換行</li>
+</ul></div>
+<div class="log"><h4>v55 以前</h4><div class="d">LINE 登入、案件／樣品／文件申請、回饋小卡、展延審核、研發 KPI 與儀表板等基本功能。</div></div>
+
+</main>
+</div>
+<footer>百鮮企業有限公司　樣品開發追蹤系統　操作手冊　v76　·　2026-11-02</footer>
+<button class="totop" type="button" aria-label="回到頂端">↑</button>
+<script src="assets/manual.js"></script>
+</body>
+</html>

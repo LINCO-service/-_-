@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="百鮮企業樣品開發追蹤系統｜客戶端操作手冊">
+<meta name="theme-color" content="#1F4637">
+<title>客戶端操作手冊｜百鮮企業</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="index.html"><img src="assets/logo-192.png" alt="" width="30" height="30"><span>樣品開發追蹤系統　操作手冊</span></a>
+  <span class="sp"></span>
+  <a class="lnk" href="internal.html">內部手冊</a><a class="lnk on" href="customer.html">客戶端手冊</a>
+  <button id="printBtn" class="hide-m" type="button" title="列印或另存 PDF">列印</button>
+</header><div class="wrap">
+<nav class="toc" aria-label="目錄"><p class="ttl">目　錄</p><ol><li class=""><a href="#welcome">1　歡迎使用</a></li><li class=""><a href="#member">2　如何成為會員（綁定 LINE）</a></li><li class=""><a href="#records">3　如何查詢案件進度</a></li><li class="sub"><a href="#status">3.1　狀態代表什麼</a></li><li class=""><a href="#feedback">4　如何填寫樣品回饋</a></li><li class=""><a href="#dash">5　用網頁登入時的提醒</a></li><li class=""><a href="#faq">6　常見問題</a></li></ol></nav>
+<main>
+<section class="hero"><div class="eyebrow">LINCO 百鮮企業　樣品開發追蹤系統</div><h1>客戶端操作手冊</h1><p>給合作客戶：如何用 LINE 註冊、查看樣品進度，以及填寫樣品回饋。不用下載 App。</p><div class="meta"><span>適用：合作客戶</span><span>系統版本 v76</span><span>更新 2026-11-02</span></div></section>
+<details class="toc-m"><summary>📑 目錄</summary><ol><li class=""><a href="#welcome">1　歡迎使用</a></li><li class=""><a href="#member">2　如何成為會員（綁定 LINE）</a></li><li class=""><a href="#records">3　如何查詢案件進度</a></li><li class="sub"><a href="#status">3.1　狀態代表什麼</a></li><li class=""><a href="#feedback">4　如何填寫樣品回饋</a></li><li class=""><a href="#dash">5　用網頁登入時的提醒</a></li><li class=""><a href="#faq">6　常見問題</a></li></ol></details>
+<div class="cards">
+  <a class="card role" href="#member"><h4>第一次使用</h4><p>點開業務傳來的小卡，30 秒完成註冊</p></a>
+  <a class="card role gold" href="#records"><h4>查看樣品進度</h4><p>隨時看到您公司所有案件與樣品</p></a>
+  <a class="card role slate" href="#feedback"><h4>填寫樣品回饋</h4><p>確認定案，或告訴我們要調整的方向</p></a>
+</div>
+
+<h2 id="welcome"><span class="no">1</span>歡迎使用</h2>
+<p class="lead">為了讓您隨時掌握委託百鮮企業開發的樣品進度，我們提供這套系統：您可以直接用 LINE 查看樣品走到哪個階段，並在樣品送達後，直接回覆使用心得。<b>不需要下載 App，也不用記帳號密碼。</b></p>
+<p>這份手冊說明三件事：怎麼成為會員、怎麼查詢案件進度、怎麼填寫樣品回饋。</p>
+
+<h2 id="member"><span class="no">2</span>如何成為會員（綁定 LINE）</h2>
+<p>第一次使用時，百鮮企業的業務窗口會在 LINE 傳一張「<b>樣品回饋確認卡</b>」給您。<b>點開小卡就會自動帶您註冊，不需要另外申請。</b></p>
+<ol class="steps">
+  <li>在 LINE 對話裡點開業務傳來的小卡。</li>
+  <li>系統會取得您目前的 LINE 身分，並顯示「<b>註冊正式會員</b>」畫面。<b>公司名稱</b>已經帶好（不能修改）。</li>
+  <li>確認或填寫<b>聯絡人姓名</b>與<b>聯絡電話</b>。</li>
+  <li>按 <span class="ui">完成註冊並綁定</span>。完成後，這個 LINE 帳號就能查詢貴公司的所有案件。</li>
+</ol>
+<figure><div class="fig"><div class="mock"><div class="mh"><small>LINCO FOOD</small><b>註冊正式會員</b><small>首次使用，請完成會員註冊。</small></div><div class="mb">
+  <div style="font-size:12.5px;color:var(--green);font-weight:700;margin-bottom:8px">● 已取得您的 LINE 身分</div>
+  <div style="font-size:12px;color:var(--ink2)">公司名稱</div><div style="border:1px solid var(--line);border-radius:8px;padding:6px 10px;background:var(--cream);margin-bottom:8px">○○食品股份有限公司</div>
+  <div style="font-size:12px;color:var(--ink2)">聯絡人姓名 *</div><div style="border:1px solid var(--line);border-radius:8px;padding:6px 10px;margin-bottom:8px">王小明</div>
+  <div style="font-size:12px;color:var(--ink2)">聯絡電話 *</div><div style="border:1px solid var(--line);border-radius:8px;padding:6px 10px;margin-bottom:10px">0912-345-678</div>
+  <div style="background:#06C755;color:#fff;border-radius:8px;text-align:center;padding:8px;font-weight:800">完成註冊並綁定</div>
+</div></div></div><figcaption>圖 1　註冊正式會員（示意畫面）</figcaption></figure>
+<div class="callout"><span class="h">請不要轉傳小卡或連結</span>小卡對應的是您公司的資料。若貴公司有多位同仁需要查詢，請各自向百鮮的業務窗口索取。</div>
+
+<h2 id="records"><span class="no">3</span>如何查詢案件進度</h2>
+<p>完成註冊後，點開百鮮傳來的小卡，再按 <span class="ui">📂 查看我的案件記錄</span>，就能看到「<b>我的案件記錄</b>」。這裡會列出貴公司<b>全部</b>的案件，以及每個案件裡的每一項樣品，不再只看得到單一樣品。</p>
+<figure><div class="fig"><div class="mock"><div class="mh"><small>LINCO FOOD</small><b>我的案件記錄</b><small>○○食品股份有限公司　·　點樣品可隨時填寫回饋</small></div><div class="mb">
+  <div class="caseb"><div class="t"><b class="mono" style="font-size:13px">DV-202610-014</b><span class="bdg b-amber">進行中</span></div>
+    <div style="font-size:11.5px;color:var(--ink2);margin:2px 0 6px">申請 2026-10-05　·　3 項　·　NT$ 4,725</div>
+    <div class="row"><span>草莓風味粉</span><span style="display:flex;gap:6px;align-items:center"><span class="bdg b-ink">已寄出</span><span class="mini">填寫回饋</span></span></div>
+    <div class="row"><span>抹茶風味粉</span><span style="display:flex;gap:6px;align-items:center"><span class="bdg b-amber">打樣中</span></span></div>
+    <div class="row"><span>芒果風味粉</span><span style="display:flex;gap:6px;align-items:center"><span class="bdg b-ok">配方定案</span></span></div>
+  </div>
+</div></div></div><figcaption>圖 2　我的案件記錄（示意畫面）。已寄出的樣品旁邊會有「填寫回饋」按鈕</figcaption></figure>
+
+<h3 id="status"><span class="no">3.1</span>狀態代表什麼</h3>
+<div class="tw"><table>
+<thead><tr><th>您看到的狀態</th><th>代表的意思</th></tr></thead>
+<tbody>
+<tr><td><span class="bdg b-gray">待分配</span></td><td>已收到您的需求，百鮮正在安排研發人員。</td></tr>
+<tr><td><span class="bdg b-amber">打樣中</span></td><td>研發人員正在為您製作樣品。</td></tr>
+<tr><td><span class="bdg b-green">已備妥</span></td><td>樣品已做好，準備寄出。</td></tr>
+<tr><td><span class="bdg b-ink">已寄出</span></td><td>樣品已寄出，請留意收件；試用後別忘了回覆使用心得。</td></tr>
+<tr><td><span class="bdg b-amber">待回饋</span></td><td>等待您試用後回覆。</td></tr>
+<tr><td><span class="bdg b-red">需調整</span></td><td>您提出了調整需求，研發人員正在依您的意見重新製作。</td></tr>
+<tr><td><span class="bdg b-ok">配方定案</span></td><td>您已確認採用這個配方，這項樣品已完成。</td></tr>
+<tr><td><span class="bdg b-ok">已完成</span></td><td>這項樣品已送達，不需要再回覆，這項需求完成。</td></tr>
+</tbody></table></div>
+<div class="callout info"><span class="h">看不到內部備註是正常的</span>為了保護雙方溝通內容，系統不會顯示百鮮內部的研發備註或討論，您看到的都是目前的進度狀態，並非資料缺漏。</div>
+
+<h2 id="feedback"><span class="no">4</span>如何填寫樣品回饋</h2>
+<p>有<b>兩種方式</b>可以填寫，效果相同：</p>
+<div class="cards">
+  <div class="card"><h4>① 從小卡進入</h4><p>樣品寄出後<b>第 3 天起</b>，業務會在 LINE 傳「樣品回饋確認卡」給您，點開即可回覆。</p></div>
+  <div class="card"><h4>② 自己隨時填寫</h4><p>不必等小卡。打開「我的案件記錄」，在已寄出的樣品旁按 <span class="ui">填寫回饋</span>，同時有多個樣品也能各自回覆。</p></div>
+</div>
+<ol class="steps">
+  <li>確認樣品名稱與需求編號，試用後選擇您的回覆：
+    <ul>
+      <li><span class="ui">✅ 確認配方定案</span>　這個配方可以正式採用，這項樣品完成。</li>
+      <li><span class="ui">📝 需要調整</span>　請<b>務必填寫</b>希望調整的方向（風味、質地、規格等），研發人員會依您的意見重新製作。</li>
+    </ul></li>
+  <li>可以在文字框補充說明（選「需要調整」時必填）。</li>
+  <li>按 <span class="ui">送出回覆</span>。出現「配方已確認定案」或「調整需求已送出」就完成了。</li>
+</ol>
+<div class="callout tip"><span class="h">同時有好幾個樣品？</span>每一項樣品都是各自回覆的。某個樣品定案了，其他還沒試完的可以之後再回，不會互相影響。</div>
+<div class="callout"><span class="h">只想取消其中一個樣品？</span>請直接聯繫您的業務窗口，由他協助處理；其餘樣品會照常進行。</div>
+
+<h2 id="dash"><span class="no">5</span>用網頁登入時的提醒</h2>
+<p>如果您是用網頁版登入（例如在電腦上查看），首頁儀表板最上方會主動提醒您：</p>
+<figure><div class="fig"><div class="mock"><div class="mb">
+  <div class="rem"><b>📝 待您回饋的樣品（2）</b>
+    <div class="row"><span>草莓風味粉<br><small style="color:var(--ink2)">DV-202610-014　·　已寄出　·　寄出 2026-10-08</small></span><span class="mini">填寫回饋</span></div>
+    <div class="row"><span>柚子風味粉<br><small style="color:var(--ink2)">DV-202609-031　·　需調整</small></span><span class="mini">填寫回饋</span></div></div>
+  <div class="rem red"><b>💳 待付款開發費（1）</b>
+    <div class="row"><span class="mono">DV-202610-014<br><small style="color:var(--ink2)">申請日期 2026-10-05</small></span><b style="color:var(--red)">NT$ 4,725</b></div></div>
+</div></div></div><figcaption>圖 3　儀表板提醒（示意畫面）</figcaption></figure>
+<ul>
+  <li><b>待您回饋的樣品</b>：已寄出、等您回覆的項目，按 <span class="ui">填寫回饋</span> 就能直接回覆。</li>
+  <li><b>待付款開發費</b>：收費案件且尚未登錄匯款的項目，會列出含稅金額。已匯款請聯繫業務窗口確認入帳，清單會同步更新。</li>
+</ul>
+
+<h2 id="faq"><span class="no">6</span>常見問題</h2>
+<details class="faq" id="q1"><summary>我需要下載 App 嗎？</summary><div>不需要。整個查詢與回饋都在 LINE 裡完成。</div></details>
+<details class="faq" id="q2"><summary>小卡或連結失效了怎麼辦？</summary><div>請聯繫您的百鮮業務窗口，請他重新傳一張小卡給您。</div></details>
+<details class="faq" id="q3"><summary>我可以看到報價或內部備註嗎？</summary><div>不行。系統只顯示與您相關的進度狀態；內部溝通與研發備註基於保密考量不會對外顯示。報價或規格有疑問，請直接聯繫業務窗口。</div></details>
+<details class="faq" id="q4"><summary>回饋填錯了可以修改嗎？</summary><div>目前沒有提供客戶自行修改已送出回饋的功能，請聯繫業務窗口協助更正。</div></details>
+<details class="faq" id="q5"><summary>我同時有好幾個樣品，要怎麼分別回覆？</summary><div>打開「我的案件記錄」，在每個已寄出的樣品旁各自按「填寫回饋」即可。</div></details>
+<details class="faq" id="q6"><summary>換了新的 LINE 帳號或手機，還能查詢嗎？</summary><div>綁定是跟 LINE 帳號綁在一起的。換了 LINE 帳號需要重新註冊，請聯繫業務窗口重新傳送小卡，用新帳號完成註冊。同一個 LINE 帳號換手機則不受影響。</div></details>
+<details class="faq" id="q8"><summary>樣品顯示「已結案」是什麼意思？</summary><div>代表這一項樣品已經結束（例如您決定不需要了），不會再有「填寫回饋」按鈕，其他樣品不受影響。如果之後想繼續，請聯繫您的業務窗口重新開啟。</div></details>
+<details class="faq" id="q7"><summary>很久沒收到回饋確認卡？</summary><div>可能樣品還在製作或運送中。樣品寄出後第 3 天起才會傳小卡；您也可以隨時從「我的案件記錄」自行回覆。急件請直接聯繫業務窗口。</div></details>
+
+</main>
+</div>
+<footer>百鮮企業有限公司　樣品開發追蹤系統　操作手冊　v76　·　2026-11-02</footer>
+<button class="totop" type="button" aria-label="回到頂端">↑</button>
+<script src="assets/manual.js"></script>
+</body>
+</html>
